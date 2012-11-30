@@ -1,1 +1,4 @@
+# The main build dir
 build
+# For the Sphinx documentation
+_build

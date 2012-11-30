@@ -1,0 +1,23 @@
+import unittest
+
+import sys
+sys.path.append("@PROJECT_BINARY_DIR@")
+
+from vector import Vector
+
+class TestVector(unittest.TestCase):
+    def setUp(self):
+        self.vec1 = Vector("vec", [1.0, 1.0, 1.0])
+        self.vec2 = Vector("vec", [1.0, 1.0])
+
+    def test_dot_product(self):
+        # Test <1|1> = 3
+        dotpr = self.vec1.dot_product(self.vec1)
+        self.assertEqual(dotpr, 3.0) 
+
+        # Test <1|2> fails due to incompatible indexing
+        self.assertRaises(RuntimeError, self.vec1.dot_product, self.vec2) 
+
+if __name__ == '__main__':
+    suite = unittest.TestLoader().loadTestsFromTestCase(TestVector)
+    unittest.TextTestRunner(verbosity=2).run(suite)

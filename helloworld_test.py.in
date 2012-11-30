@@ -1,0 +1,8 @@
+from @HW_PROJECT_NAME@ import greeting, HelloWorld
+
+# Call the bound greeting function
+print greeting()
+
+# Build a helloworld object
+hw = HelloWorld()
+hw.greet()
